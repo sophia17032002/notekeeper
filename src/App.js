@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import NoteCard from "./components/NoteCard"; // Assuming NoteCard is a component for displaying individual notes
+import NoteCard from "./components/NoteCard"; 
 import { AiOutlineBulb } from "react-icons/ai"; // Bulb Icon
 import { BsMoon, BsSun } from "react-icons/bs"; // Moon and Sun Icons
+import "animate.css";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -103,11 +104,11 @@ const App = () => {
   const totalPages = Math.ceil(sortedNotes.length / notesPerPage);
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-8 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:bg-gradient-to-r dark:from-indigo-800 dark:via-purple-900 dark:to-pink-800 transition-all ease-in-out duration-500">
+    <div className="min-h-screen flex flex-col items-center p-8 bg-gradient-to-r from-[#ada996] via-[#f2f2f2] to-[#dbdbdb] dark:bg-gradient-to-r dark:from-[#0f2027] dark:via-[#203a43] dark:to-[#2c5364] transition-all ease-in-out duration-500">
+      {" "}
       <div className="flex justify-between items-center w-full max-w-4xl mb-8">
-        <h1 className="text-3xl font-bold text-white animate__animated animate__fadeIn animate__delay-1s">
-          Notes{" "}
-          <AiOutlineBulb className="inline-block text-yellow-400 text-2xl ml-2" />
+        <h1 className="text-3xl font-bold text-customOrange animate__animated animate__fadeIn animate__delay-1s">
+          KeepNotes{" "}
         </h1>
         <button
           className="text-2xl text-white transform hover:scale-125 transition-all duration-300"
@@ -120,29 +121,27 @@ const App = () => {
           )}
         </button>
       </div>
-
+      <AiOutlineBulb className="inline-block text-yellow-400 text-6xl ml-2" />
       {notes.length === 0 ? (
-        <p className="text-lg italic mb-8 text-white animate__animated animate__fadeIn animate__delay-1s">
+        <p className="text-lg font-bold italic mb-8 text-customOrange animate__animated animate__fadeIn animate__delay-1s">
           Notes that you add will appear here.
         </p>
       ) : (
-        <p className="text-lg italic mb-8 text-white animate__animated animate__fadeIn animate__delay-1s">
+        <p className="text-lg italic font-bold mb-8 text-customOrange animate__animated animate__fadeIn animate__delay-1s">
           Your Notes
         </p>
       )}
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl">
         {currentNotes.map((note, index) => (
           <NoteCard
             key={index}
             note={note}
-            onClick={() => handleEditNote(index + indexOfFirstNote)} // Pass the correct index
-            onDelete={() => handleDeleteNote(index + indexOfFirstNote)} // Pass the correct index
-            onPin={() => handlePinNote(index + indexOfFirstNote)} // Pass the correct index
+            onClick={() => handleEditNote(index + indexOfFirstNote)} 
+            onDelete={() => handleDeleteNote(index + indexOfFirstNote)} 
+            onPin={() => handlePinNote(index + indexOfFirstNote)} 
           />
         ))}
       </div>
-
       <div className="flex gap-4 mt-8 w-full max-w-4xl">
         <input
           type="text"
@@ -171,7 +170,6 @@ const App = () => {
           Add Note
         </button>
       </div>
-
       {isModalOpen && (
         <div className="fixed inset-0 flex justify-center items-center bg-gray-700 bg-opacity-50 z-50">
           <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full animate__animated animate__fadeIn animate__delay-1s dark:bg-gray-800 dark:text-white">
@@ -215,7 +213,6 @@ const App = () => {
           </div>
         </div>
       )}
-
       <div className="flex justify-between items-center w-full max-w-4xl mt-8">
         <button
           className="bg-blue-500 text-white p-2 rounded-lg"

@@ -7,6 +7,7 @@ const NoteCard = ({ note, onClick, onDelete, onPin }) => {
     <div
       className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300"
       style={{ minHeight: "200px" }}
+      onClick={onClick}
     >
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{note.title}</h3>
       <p className="text-sm text-gray-600 dark:text-gray-300">{note.tagline}</p>
@@ -24,13 +25,6 @@ const NoteCard = ({ note, onClick, onDelete, onPin }) => {
             ) : (
               <AiOutlinePushpin />
             )}
-          </button>
-          {/* Edit Button */}
-          <button
-            onClick={onClick}
-            className="text-xl text-yellow-500 hover:text-yellow-600 dark:text-yellow-400 dark:hover:text-yellow-300"
-          >
-            Edit
           </button>
         </div>
 

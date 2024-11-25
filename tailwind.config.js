@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,js,jsx,ts,tsx}", // Include all React files
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customOrange: "#ff0066",
+      },
+    },
   },
   plugins: [],
 };
